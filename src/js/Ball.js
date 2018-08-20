@@ -1,10 +1,16 @@
+import { throws } from 'assert'
+
+const ballscontainer = document.querySelector('[data-js=ballscontainer]')
+
 export default class Ball {
-  constructor(x, y) {
+  constructor(x, y, countClickedBalls) {
+    //document.body.addEventListener('click', event => this.handleClick(event))
     this.createElement(x, y)
     this.setPosition()
     this.queueUpdate()
     this.setupEvents()
     this.changeBackground()
+    this.countClickedBalls = countClickedBalls
   }
 
   changeBackground() {
@@ -18,16 +24,11 @@ export default class Ball {
 
   setupEvents() {
     this.el.addEventListener('click', event => {
+      this.countClickedBalls()
       event.stopPropagation()
       this.destroy()
-      //const countUpdate = +1
     })
   }
-
-  //insertCounter() {
-  //const
-  //counter.insertAdjacentElement
-  //}
 
   destroy() {
     cancelAnimationFrame(this.animationFrame)
@@ -51,7 +52,7 @@ export default class Ball {
     this.pos = { x, y }
     this.el = document.createElement('div')
     this.el.className = 'ball'
-    document.body.insertAdjacentElement('beforeend', this.el)
+    ballscontainer.insertAdjacentElement('beforeend', this.el)
   }
 
   setPosition() {

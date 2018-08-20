@@ -1,0 +1,45 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: darkseagreen;
+  height: 100%;
+  width: 20%;
+  margin-left: -5px;
+  color: hotpink;
+  z-index: 10;
+}
+
+.scoreboard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100px;
+  width: 250px;
+  border: 2px solid #444;
+  margin: 20px;
+  color: #444;
+  font-size: 2em;
+  border-radius: 20%;
+}
+
+.tree {
+  display: inline-box;
+  position: absolute;
+  height: 50px;
+  width: 20px;
+  background-color: #444;
+  bottom: 10px;
+}
+
+.tree:before {
+  content: '';
+  border-style: solid;
+  border-width: 0 50px 140px 50px;
+  border-color: transparent transparent #1bb845 transparent;
+  position: absolute;
+  bottom: 50%;
+  left: -40px;
+}
